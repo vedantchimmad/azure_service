@@ -1,5 +1,6 @@
 # What is Azure
 Azure is a cloud computing service provider by microsoft where users can create server,storage system and database here all the data center and physical infrastructure is maintained by microsoft 
+![Azure serice](../image/Azure_service.png)
 ### Why cloud 
 * We need to avoid capital expenditure 
 * It provides virtual machines 
