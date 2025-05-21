@@ -154,9 +154,11 @@ A **linked service** defines the connection to a data source or compute resource
 
 
 ⏱ **Types**:
-- Schedule Trigger
-- Tumbling Window
-- Event Trigger
+- **Schedule Trigger** : Runs pipelines at **specific intervals** (e.g., hourly, daily).
+- **Tumbling Window** : Processes data in **fixed-size, non-overlapping intervals**. Supports **retry, concurrency, and dependency** chaining.
+- **Event Trigger** : Triggers a pipeline based on **blob creation or deletion events** in Azure Storage.
+- **Manual Trigger** : Pipelines can be executed manually **without a defined trigger**
+
 
 ```json
 {
