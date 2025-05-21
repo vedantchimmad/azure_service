@@ -159,6 +159,14 @@ A **linked service** defines the connection to a data source or compute resource
 - **Event Trigger** : Triggers a pipeline based on **blob creation or deletion events** in Azure Storage.
 - **Manual Trigger** : Pipelines can be executed manually **without a defined trigger**
 
+| Feature                     | Schedule Trigger        | Tumbling Window Trigger             |
+|-----------------------------|-------------------------|-------------------------------------|
+| Time Window Overlap         | Can overlap             | Fixed, non-overlapping              |
+| Dependency Support          | ❌ No                    | ✅ Yes                               |
+| Backfill Support            | ❌ No                    | ✅ Yes                               |
+| Retry on Failure            | ❌ No                    | ✅ Yes                               |
+| Runs if Previous Fails?     | ✅ Yes                   | ❌ No (unless retried/backfilled)    |
+| Use Case                    | Simple recurring tasks  | Time-partitioned ingestion          |
 
 ```json
 {
