@@ -1,12 +1,12 @@
 # ☁️ Azure Data Factory (ADF)
 
-## 📌 What is ADF?
+###  📌 What is ADF?
 **Azure Data Factory** is a **cloud-based ETL (Extract, Transform, Load) and data integration service** provided by Microsoft Azure.  
 It lets you create **data pipelines** to move and transform data across various sources at scale.
 
 ---
 
-## 🧱 Key Components
+### 🧱 Key Components
 
 | Component        | Description                                                            |
 |------------------|------------------------------------------------------------------------|
@@ -19,7 +19,7 @@ It lets you create **data pipelines** to move and transform data across various 
 
 ---
 
-## 🔄 What Can ADF Do?
+### 🔄 What Can ADF Do?
 
 ✅ Copy data from 100+ sources  
 ✅ Run transformations using **Mapping Data Flows** (code-free) or external compute (e.g., Databricks, HDInsight, SQL)  
@@ -29,7 +29,7 @@ It lets you create **data pipelines** to move and transform data across various 
 
 ---
 
-## 📤 Example Use Case
+### 📤 Example Use Case
 
 🔹 **Copy data** from on-prem SQL Server to Azure Data Lake  
 🔹 **Clean and transform** it using a Data Flow  
@@ -37,7 +37,7 @@ It lets you create **data pipelines** to move and transform data across various 
 
 ---
 
-## 🛠️ Sample JSON Pipeline (Simplified)
+### 🛠️ Sample JSON Pipeline (Simplified)
 ```json
 {
   "name": "CopySalesDataPipeline",
@@ -56,3 +56,187 @@ It lets you create **data pipelines** to move and transform data across various 
     ]
   }
 }
+```
+
+### 🧩 Azure Data Factory (ADF) – Core Components
+
+Azure Data Factory is a cloud-based data integration service that allows you to create, schedule, and orchestrate data pipelines.
+
+### 🧱 1. Pipeline
+
+* A **pipeline** is a container for one or more activities.
+
+
+
+* A pipeline is a **logical container** for a sequence of activities.
+
+```json
+{
+  "name": "MyDataPipeline",
+  "properties": {
+    "activities": []
+  }
+}
+```
+
+---
+
+### 🏗 2. Activity
+
+An **activity** is a single task, such as copying data or executing a SQL script.
+
+**Common activity types**:
+- `CopyActivity`
+- `DataFlowActivity`
+- `ExecutePipelineActivity`
+- `NotebookActivity`
+```json
+{
+  "name": "CopyBlobToSQL",
+  "type": "Copy",
+  "inputs": ["BlobInput"],
+  "outputs": ["SqlOutput"],
+  "typeProperties": {
+    "source": { "type": "DelimitedTextSource" },
+    "sink": { "type": "SqlSink" }
+  }
+}
+```
+
+---
+
+### 📁 3. Dataset
+
+* A **dataset** represents input or output data — like a file or table.
+* A dataset defines **metadata** pointing to the data you want to use.
+
+```json
+{
+  "name": "BlobSalesData",
+  "type": "Dataset",
+  "properties": {
+    "linkedServiceName": { "referenceName": "AzureBlobStorage" },
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": { "type": "AzureBlobStorageLocation", "folderPath": "raw/sales" },
+      "columnDelimiter": ",",
+      "firstRowAsHeader": true
+    }
+  }
+}
+```
+
+---
+
+### 🔗 4. Linked Service
+
+A **linked service** defines the connection to a data source or compute resource.
+
+```json
+{
+  "name": "AzureSQLLinkedService",
+  "type": "LinkedService",
+  "properties": {
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Server=tcp:myserver.database.windows.net;Database=mydb;..."
+    }
+  }
+}
+```
+
+---
+
+### ⏰ 5. Trigger
+
+* A **trigger** defines when a pipeline is executed.
+* A trigger defines **when and how** a pipeline should execute.
+
+
+⏱ **Types**:
+- Schedule Trigger
+- Tumbling Window
+- Event Trigger
+
+```json
+{
+  "name": "DailyTrigger",
+  "type": "ScheduleTrigger",
+  "properties": {
+    "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+    }
+  }
+}
+```
+
+---
+
+### 🖥️ 6. Integration Runtime (IR)
+
+IR is the **compute environment** for running activities.
+
+### Types:
+- `Azure` (default for cloud)
+- `Self-hosted` (on-premise)
+- `Azure-SSIS` (for SSIS packages)
+
+```json
+{
+  "name": "AzureIR",
+  "type": "IntegrationRuntimeReference",
+  "referenceName": "AutoResolveIntegrationRuntime"
+}
+```
+
+---
+
+### 🧮 7. Parameters
+
+**Parameters** allow pipelines and datasets to be dynamic.
+
+```json
+"parameters": {
+  "filename": {
+    "type": "String"
+  }
+}
+```
+
+---
+
+### 🔄 8. Data Flow
+
+**Data Flows** provide visual, drag-and-drop transformation capabilities.
+
+```json
+{
+  "name": "CleanSalesDataFlow",
+  "type": "MappingDataFlow",
+  "typeProperties": {
+    "sources": [...],
+    "transformations": [...],
+    "sinks": [...]
+  }
+}
+```
+
+---
+
+### 📊 Summary Table
+
+| Component           | Purpose                                 |
+|---------------------|------------------------------------------|
+| Pipeline            | Container of activities                  |
+| Activity            | Task like Copy, Lookup, Execute Notebook |
+| Dataset             | Input/output data descriptor             |
+| Linked Service      | Data source connection                   |
+| Trigger             | Defines execution schedule               |
+| Integration Runtime | Compute engine for pipeline execution    |
+| Parameters          | Makes logic dynamic and reusable         |
+| Data Flow           | GUI-based data transformation logic      |
+
+---
+
+
