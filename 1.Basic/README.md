@@ -149,3 +149,107 @@ Cloud computing is the delivery of computing services—servers, storage, databa
 | SaaS          | Just use the software             | Everything else                                  | Email, CRM, Office Suite                 |
 
 ---
+## 🌐 Microsoft Azure Global Infrastructure
+
+Microsoft Azure is one of the **largest cloud platforms in the world**, designed to offer **resilient, secure, and scalable services** through a network of global data centers.
+
+---
+
+### 🏢 Core Components of Azure Infrastructure
+
+#### 1. 🌎 **Regions**
+> A **region** is a set of data centers deployed within a specific geographical area.
+
+- Azure has **60+ regions** around the world.
+- Each region consists of one or more **data centers**.
+- Regions are grouped for data residency and compliance.
+
+📍 Example:
+- East US
+- West Europe
+- Southeast Asia
+
+---
+
+#### 2. 🏬 **Availability Zones**
+> Physically separate locations within a region.
+
+- Each region can have **1 to 3+ Availability Zones (AZs)**.
+- Each AZ has its own **power, cooling, and networking**.
+- Used for building **high-availability** apps.
+
+✅ Deploying across AZs protects from **data center-level failures**.
+
+---
+
+#### 3. 🌐 **Geographies**
+> Defined by geopolitical boundaries or regions.
+
+- Azure geographies help you meet **data residency and compliance** requirements.
+- Examples:
+    - US
+    - Europe
+    - Asia Pacific
+    - Middle East & Africa
+
+---
+
+#### 4. 🛣️ **Azure Global Network**
+> Microsoft owns one of the **largest global networks**, connecting all Azure regions.
+
+- **160,000+ miles of fiber and undersea cables**
+- **High-speed, low-latency backbone**
+- **Private peering** between Microsoft and ISPs
+
+---
+
+#### 5. 🧱 **Edge Zones and Points of Presence (PoPs)**
+> Extend Azure services closer to users for **low latency**.
+
+- **Edge Zones**: Compute, networking, and storage close to end-users.
+- **PoPs**: Content caching and fast data delivery.
+
+---
+
+### 📌 Global Footprint Overview
+
+```text
++-------------------------------------------------------+
+|                  Microsoft Azure                      |
++-------------------------------------------------------+
+| ➤ 60+ Regions                                         |
+| ➤ 3,000+ Edge Locations                               |
+| ➤ 190+ Network PoPs                                   |
+| ➤ 160K+ miles of fiber network                        |
+| ➤ Availability Zones in most major regions            |
++-------------------------------------------------------+
+```
+
+---
+
+### 📸 Example: Azure Region Hierarchy
+
+```text
+Geography → Region → Availability Zones → Data Centers
+Europe     → West Europe → AZ-1 / AZ-2 / AZ-3 → Individual DCs
+```
+
+---
+
+## 🌍 Map of Azure Regions
+
+> ![Azure Region Map](https://learn.microsoft.com/en-us/azure/images/azure-global-infrastructure.svg)
+
+📎 View live map: [Azure Global Infrastructure Map](https://infrastructuremap.microsoft.com/)
+
+---
+
+## 🔐 Compliance & Sovereignty
+
+- Azure follows **regional compliance and legal rules**.
+- Supports **sovereign clouds** like:
+    - **Azure Government (USA)**
+    - **Azure China (operated by 21Vianet)**
+    - **Azure Germany**
+
+---
