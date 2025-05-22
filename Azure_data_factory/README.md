@@ -262,5 +262,130 @@ IR is the **compute environment** for running activities.
 | Data Flow           | GUI-based data transformation logic      |
 
 ---
+## 🧩 Parameterization in Azure Data Factory (ADF)
+
+**Parameterization** in ADF allows you to create **flexible, reusable pipelines, data flows, datasets, and linked services** by passing values at runtime.
+
+---
+
+### 🔑 Why Parameterization?
+
+- **Reuse components** with different values (e.g., filenames, table names)
+- **Simplify maintenance** by avoiding hardcoding
+- **Enable dynamic pipeline execution**
+
+---
+
+### 🎯 Where You Can Use Parameters
+
+| Component         | Supports Parameters? | Example Use Case                         |
+|------------------|----------------------|------------------------------------------|
+| Pipeline          | ✅ Yes               | File name, table name, load type         |
+| Dataset           | ✅ Yes               | File path, table name                    |
+| Linked Service    | ✅ Yes               | Database name, connection string         |
+| Data Flow         | ✅ Yes               | Source filters, derived columns          |
+| Triggers          | ✅ Yes               | Runtime date passed to pipeline          |
+
+---
+
+### 🧪 Example: Pipeline Parameter
+
+```json
+"parameters": {
+  "FileName": {
+    "type": "String"
+  }
+}
+```
+
+#### 👇 Usage in Activity
+```json
+"dataset": {
+  "referenceName": "InputDataset",
+  "parameters": {
+    "fileName": "@pipeline().parameters.FileName"
+  }
+}
+```
+
+---
+
+### 📦 Dataset Parameter Example
+
+```json
+{
+  "name": "InputDataset",
+  "properties": {
+    "parameters": {
+      "fileName": {
+        "type": "String"
+      }
+    },
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "@dataset().fileName",
+        "folderPath": "input"
+      }
+    }
+  }
+}
+```
+
+---
+
+### 🔄 Data Flow Parameters
+
+### 🧮 Define a parameter:
+```json
+"parameters": {
+  "sourceTable": {
+    "type": "string"
+  }
+}
+```
+
+#### 📌 Use in a Source transformation:
+```plaintext
+SELECT * FROM @{sourceTable}
+```
+
+---
+
+### 🕒 Trigger-Time Parameterization
+
+```json
+"pipelines": [
+  {
+    "parameters": {
+      "runDate": "@trigger().startTime"
+    }
+  }
+]
+```
+
+---
+
+### 🛠️ Expression Language Support
+
+ADF uses **Dynamic Content Expressions** (similar to Azure Logic Apps):
+
+- `@pipeline().parameters.paramName`
+- `@dataset().paramName`
+- `@activity('CopyActivity').output`
+- `@utcNow()`
+- `@concat()`, `@formatDateTime()`, etc.
+
+---
+
+### ✅ Best Practices
+
+- Use meaningful parameter names (e.g., `sourceFilePath`, `runDate`)
+- Combine with **expressions** for maximum flexibility
+- Use in **looping constructs** (e.g., `ForEach`) to drive dynamic behavior
+- Keep **defaults** for local testing
+
+---
 
 
