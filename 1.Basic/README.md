@@ -1,29 +1,3 @@
-# What is Azure
-Azure is a cloud computing service provider by microsoft where users can create server,storage system and database here all the data center and physical infrastructure is maintained by microsoft 
-![Azure serice](../image/Azure_service.png)
-### Why cloud 
-* We need to avoid capital expenditure 
-* It provides virtual machines 
-* It's provide best security features 
-* No infra team is required to maintain infrastructure 
-* Service provider will maintain storage 
-* Automatic software updates
-* scale resource 
-### Types of cloud computing
-1) Public cloud
-2) Hybrid cloud 
-3) Private cloud
-
-### Types of cloud services 
-![Types of cloud services](../image/Types_of_cloud_services.png)
-1) IAAS(ex: Empty plat)
-2) PAAS(ex: Plat with some equipment)
-3) SAAS(Ex : Hotel)
-
-### Services technical perspective 
-![Types of cloud services technicall perspective](../image/cloud_service_technical.png)
-
----
 ## ☁️ Microsoft Azure Overview
 
 **Microsoft Azure** is a comprehensive **cloud computing platform** developed by Microsoft, offering **over 200 products and cloud services** to help you build, run, and manage applications across multiple clouds, on-premises, and at the edge.
@@ -91,5 +65,87 @@ Azure meets a broad set of **international and industry-specific standards**, in
 - HIPAA
 - FedRAMP
 - GDPR
+---
+
+## ☁️ Types of Cloud Computing
+
+Cloud computing is the delivery of computing services—servers, storage, databases, networking, software, analytics, and more—**over the Internet ("the cloud")** to offer faster innovation, flexible resources, and economies of scale.
+
+---
+
+### 🧱 Cloud Computing Service Models
+
+### 1. 🔧 Infrastructure as a Service (IaaS)
+
+> Provides virtualized computing resources over the internet.
+
+| Feature          | Description                           |
+|------------------|---------------------------------------|
+| You manage       | OS, apps, data                        |
+| Provider manages | Hardware, network, virtualization     |
+| Examples         | Azure VMs, Amazon EC2, Google Compute |
+
+✅ **Use when**: You want maximum control over your environment (e.g., virtual machines, networking, storage).
+
+---
+
+### 2. 🛠️ Platform as a Service (PaaS)
+
+> Provides hardware and software tools over the internet for application development.
+
+| Feature           | Description                                   |
+|-------------------|-----------------------------------------------|
+| You manage        | Applications, data                            |
+| Provider manages  | OS, servers, storage, networking              |
+| Examples          | Azure App Services, Google App Engine, Heroku |
+
+✅ **Use when**: You want to build apps without managing the underlying infrastructure.
+
+---
+
+### 3. 🧩 Software as a Service (SaaS)
+
+> Delivers software applications over the internet on a subscription basis.
+
+| Feature          | Description                                 |
+|------------------|---------------------------------------------|
+| You manage       | Just use the application                    |
+| Provider manages | Everything else                             |
+| Examples         | Microsoft 365, Google Workspace, Salesforce |
+
+✅ **Use when**: You need a ready-to-use software product with minimal setup.
+
+---
+
+## 🌍 Cloud Deployment Models
+
+### 1. 🌐 Public Cloud
+- Services delivered over the public internet.
+- Shared resources among multiple customers.
+- Providers: Azure, AWS, Google Cloud.
+
+### 2. 🏢 Private Cloud
+- Cloud infrastructure operated exclusively for a single organization.
+- Can be on-premises or hosted externally.
+- Offers greater security and control.
+
+### 3. 🔄 Hybrid Cloud
+- Combines public and private clouds.
+- Enables data and app portability between environments.
+- Ideal for regulated industries or gradual cloud migration.
+
+### 4. 🌩️ Multi-Cloud
+- Uses multiple cloud providers (e.g., AWS + Azure).
+- Avoids vendor lock-in and increases resilience.
+
+---
+
+## 📘 Summary Table
+
+| Service Model | You Manage                        | Provider Manages                                 | Example Use Case                         |
+|---------------|-----------------------------------|--------------------------------------------------|------------------------------------------|
+| IaaS          | OS, apps, runtime, data           | Storage, network, servers, virtualization        | Hosting custom VMs                       |
+| PaaS          | Apps, data                        | Runtime, OS, storage, networking                 | Web or API development                   |
+| SaaS          | Just use the software             | Everything else                                  | Email, CRM, Office Suite                 |
 
 ---
