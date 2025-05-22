@@ -218,7 +218,21 @@ IR is the **compute environment** for running activities.
 
 ### 🔄 8. Data Flow
 
-**Data Flows** provide visual, drag-and-drop transformation capabilities.
+* **Data Flows** provide visual, drag-and-drop transformation capabilities.
+* A **Data Flow** is a **graphical data transformation** component in ADF
+
+### 🔄 Common Transformations
+
+| Transformation    | Purpose                                  |
+|-------------------|------------------------------------------|
+| Filter            | Include/exclude rows based on conditions |
+| Join              | Combine data from two sources            |
+| Derived Column    | Create new columns using expressions     |
+| Aggregate         | Perform groupings and aggregations       |
+| Conditional Split | Route data to different paths            |
+| Pivot/Unpivot     | Reshape tabular data                     |
+| Surrogate Key     | Add unique identifiers                   |
+| Lookup            | Reference data from another source       |
 
 ```json
 {
