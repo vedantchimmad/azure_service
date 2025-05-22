@@ -387,5 +387,95 @@ ADF uses **Dynamic Content Expressions** (similar to Azure Logic Apps):
 - Keep **defaults** for local testing
 
 ---
+## ⚙️ Types of Activities in Azure Data Factory (ADF)
+
+An **Activity** in ADF represents a single step in a pipeline. A pipeline can have **multiple activities** connected logically to perform **data movement**, **data transformation**, and **control flow** operations.
+
+---
+
+### 🧱 Categories of Activities
+
+| Category              | Description                                 | Examples                          |
+|-----------------------|---------------------------------------------|-----------------------------------|
+| Data Movement         | Move data from one store to another         | Copy Activity                     |
+| Data Transformation   | Transform data using compute services       | Data Flow, HDInsight, Databricks  |
+| Control Flow          | Orchestrate pipeline logic                  | If Condition, ForEach, Wait       |
+| External Activities   | Invoke services outside ADF                 | Web, Azure Function, Batch        |
+| Execution             | Run other pipelines or notebooks            | Execute Pipeline, Notebook        |
+| Machine Learning      | Interact with Azure ML pipelines/models     | Azure ML, Data Lake Analytics     |
+
+---
+
+### 🔁 1. **Data Movement Activities**
+
+- **🔄 Copy Activity**  
+  Moves data between source and sink.
+  ```json
+  "type": "Copy"
+  ```
+
+---
+
+### 🔧 2. **Data Transformation Activities**
+
+| Activity           | Description                                |
+|--------------------|--------------------------------------------|
+| **Data Flow**      | Visually designed ETL logic (Spark-based)  |
+| **Databricks**     | Run notebooks in Azure Databricks          |
+| **HDInsight Hive** | Run Hive scripts                           |
+| **Azure Batch**    | Run compute jobs at scale                  |
+
+---
+
+### 🎛️ 3. **Control Activities**
+
+| Activity             | Description                                            |
+|----------------------|--------------------------------------------------------|
+| **If Condition**     | Execute activities based on expressions                |
+| **Switch**           | Multiple conditions (like switch/case)                 |
+| **ForEach**          | Loop through an array and execute inner activities     |
+| **Until**            | Loop until a condition is met                          |
+| **Wait**             | Pause for a specific duration                          |
+| **Set Variable**     | Assign values to variables                             |
+| **Execute Pipeline** | Call another pipeline                                  |
+
+---
+
+### 🌐 4. **External Activities**
+
+| Activity           | Purpose                                |
+|--------------------|----------------------------------------|
+| **Web**            | Invoke REST endpoints                  |
+| **Azure Function** | Run a function in Azure Functions      |
+| **Lookup**         | Fetch data for control decisions       |
+| **Get Metadata**   | Get info about files, folders, tables  |
+
+---
+
+### 🧠 5. **Machine Learning Activities**
+
+| Activity                | Description                                    |
+|-------------------------|------------------------------------------------|
+| **Azure ML Execute**    | Run a machine learning pipeline/model          |
+| **Data Lake Analytics** | Execute U-SQL jobs                             |
+
+---
+
+### 🧪 Sample Pipeline Activity
+
+```json
+{
+  "name": "CopyBlobToSQL",
+  "type": "Copy",
+  "inputs": [ { "referenceName": "BlobSource" } ],
+  "outputs": [ { "referenceName": "SQLSink" } ],
+  "typeProperties": {
+    "source": { "type": "BlobSource" },
+    "sink": { "type": "SqlSink" }
+  }
+}
+```
+
+---
 
 
