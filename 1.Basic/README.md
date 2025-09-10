@@ -236,14 +236,6 @@ Europe     → West Europe → AZ-1 / AZ-2 / AZ-3 → Individual DCs
 
 ---
 
-## 🌍 Map of Azure Regions
-
-> ![Azure Region Map](https://learn.microsoft.com/en-us/azure/images/azure-global-infrastructure.svg)
-
-📎 View live map: [Azure Global Infrastructure Map](https://infrastructuremap.microsoft.com/)
-
----
-
 ## 🔐 Compliance & Sovereignty
 
 - Azure follows **regional compliance and legal rules**.
